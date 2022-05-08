@@ -43,10 +43,7 @@ void loop()
     Serial.write(BTData);
   }
 
-  /* If received Character is 1, then turn ON the LED */
-  /* You can also compare the received data with decimal equivalent */
-  /* 48 for 0 and 49 for 1 */
-  /* if(BTData == 48) or if(BTData == 49) */
+/* If received Character is 1, then Robot move FORWARD */
   if(BTData == '1')
   {
   Serial.println("FORWARD");
@@ -60,7 +57,7 @@ void loop()
  
   }
   
-  /* If received Character is 0, then turn OFF the LED */
+  /* If received Character is 0, then Robot move BACKWARD */
   if(BTData == '2')
   {
   Serial.println("BACKWARD");
@@ -74,7 +71,8 @@ void loop()
    
     
   }
- 
+  
+ /* If received Character is 0, then Robot move RIGHT */
   if(BTData == '3')
   {
     Serial.println("RIGHT");
@@ -86,6 +84,8 @@ void loop()
     digitalWrite(motor1Pin3, HIGH);
     digitalWrite(motor1Pin4, LOW);
   }
+  
+  /* If received Character is 0, then Robot move LEFT */
    if(BTData == '4')
   {
     Serial.println("LEFT");
@@ -97,6 +97,8 @@ void loop()
     digitalWrite(motor1Pin3, LOW);
     digitalWrite(motor1Pin4, HIGH);
   }
+  
+  /* If received Character is 0, then Robot STOPPED */
    if(BTData == '5')
   {
     Serial.println("STOPPED");
